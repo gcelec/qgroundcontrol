@@ -124,6 +124,7 @@ void initializeVideoStreaming(int &argc, char* argv[])
         //start_logger("gst_log");
         qputenv("GST_DEBUG", "*:4");
         qputenv("GST_DEBUG_NO_COLOR", "1");
+        qputenv("GST_DEBUG_FILE", "/home/jack/gst_debug");
 //        #endif
         GError* error = NULL;
         if (!gst_init_check(&argc, &argv, &error)) {
