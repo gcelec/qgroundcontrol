@@ -120,11 +120,11 @@ void initializeVideoStreaming(int &argc, char* argv[])
         qgcputenv("GST_PLUGIN_PATH", currentDir, "/gstreamer-plugins");
     #endif
         // Initialize GStreamer
-        #ifdef ANDDROID_GST_DEBUG
-        start_logger("gst_log");
+//        #ifdef ANDDROID_GST_DEBUG
+        //start_logger("gst_log");
         qputenv("GST_DEBUG", "*:4");
         qputenv("GST_DEBUG_NO_COLOR", "1");
-        #endif
+//        #endif
         GError* error = NULL;
         if (!gst_init_check(&argc, &argv, &error)) {
             qCritical() << "gst_init_check() failed: " << error->message;
