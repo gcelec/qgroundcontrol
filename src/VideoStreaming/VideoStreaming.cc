@@ -101,7 +101,7 @@ int start_logger(const char *app_name)
 }
 #endif
 
-void initializeVideoStreaming(int &argc, char* argv[], char* logname)
+void initializeVideoStreaming(int &argc, char* argv[], char* logname, char* debuglevel)
 {
 #if defined(QGC_GST_STREAMING)
     #ifdef __macos__
@@ -123,7 +123,7 @@ void initializeVideoStreaming(int &argc, char* argv[], char* logname)
 //        #ifdef ANDDROID_GST_DEBUG
         //start_logger("gst_log");
         if (logname) {
-            qputenv("GST_DEBUG", "*:4");
+            qputenv("GST_DEBUG", debuglevel);
             qputenv("GST_DEBUG_NO_COLOR", "1");
             qputenv("GST_DEBUG_FILE", logname);
         }

@@ -15,6 +15,8 @@ import QtQuick.Dialogs          1.2
 import QGroundControl               1.0
 import QGroundControl.Palette       1.0
 import QGroundControl.Controls      1.0
+import QGroundControl.FactSystem    1.0
+import QGroundControl.FactControls  1.0
 import QGroundControl.Controllers   1.0
 import QGroundControl.ScreenTools   1.0
 
@@ -145,13 +147,14 @@ QGCView {
                 text:                "gstreamer debug level:"
             }
 
-            QGCComboBox {
+            FactComboBox {
                 id:                  gstCombo
                 anchors.right:       followTail.left
                 anchors.rightMargin: ScreenTools.defaultFontPixelWidth*20
                 anchors.bottom:      parent.bottom
                 width:               ScreenTools.defaultFontPixelWidth*20
                 model:               ["disabled", "1", "2", "3", "4", "5", "6", "7", "8"]
+                fact:                QGroundControl.settingsManager.appSettings.gstDebug
             }
 
             BusyIndicator {
