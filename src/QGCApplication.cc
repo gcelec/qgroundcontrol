@@ -308,7 +308,8 @@ QGCApplication::QGCApplication(int &argc, char* argv[], bool unitTesting)
 #endif
 
     // Initialize Video Streaming
-    initializeVideoStreaming(argc, argv);
+    QString savePath = settings.value("SavePath").toString() + "/gstlog";
+    initializeVideoStreaming(argc, argv, savePath.toUtf8().data());
 
     _toolbox = new QGCToolbox(this);
     _toolbox->setChildToolboxes();
